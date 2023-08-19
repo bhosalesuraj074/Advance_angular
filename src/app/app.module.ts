@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PipesComponent } from './pipes/pipes.component';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './pipes & services/filter.pipe';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -11,8 +13,8 @@ const routes: Routes = [
   { path: 'pipes', component: PipesComponent },
 ];
 @NgModule({
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
-  declarations: [AppComponent, PipesComponent, HomeComponent],
+  imports: [BrowserModule, RouterModule.forRoot(routes), FormsModule],
+  declarations: [AppComponent, PipesComponent, HomeComponent, FilterPipe],
   bootstrap: [AppComponent],
   exports: [RouterModule],
 })

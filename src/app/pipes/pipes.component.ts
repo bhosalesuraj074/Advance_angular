@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pipes.component.css'],
 })
 export class PipesComponent implements OnInit {
+  search: string = '';
   employees = [
     {
       name: 'John',

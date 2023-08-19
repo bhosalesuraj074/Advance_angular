@@ -1,22 +1,37 @@
-<div class="table col-md-8">
-  <table class="table">
-    <thead class="">
-      <tr>
-        <th>Name</th>
-        <th>Department</th>
-        <th>salary</th>
-        <th>email</th>
-        <th>phone</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let emp of employees">
-        <td>{{ emp.name }}</td>
-        <td>{{ emp.department }}</td>
-        <td>{{ emp.salary }}</td>
-        <td>{{ emp.email }}</td>
-        <td>{{ emp.phone }}</td>
-      </tr>
-    </tbody>
-  </table>
+<h4 class="text-secondary text-center">Pipe Expmple</h4>
+<div class="col-md-6" style="margin-left:25%">
+  <label for="">Search here</label>
+  <input
+    type="text"
+    name="search"
+    id=""
+    class="form-control"
+    placeholder="search employee here"
+    [(ngModel)]="search"
+  />
+  {{ search }}
+</div>
+<div class="justufy-content-center mt-5" style="margin-left:25%">
+  <div class="col-md-8">
+    <table class="table table-striped">
+      <thead class="">
+        <tr>
+          <th>Name</th>
+          <th>Department</th>
+          <th>salary</th>
+          <th>email</th>
+          <th>phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employees | filter: search">
+          <td>{{ emp.name }}</td>
+          <td>{{ emp.department }}</td>
+          <td>{{ emp.salary }}</td>
+          <td>{{ emp.email }}</td>
+          <td>{{ emp.phone }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
