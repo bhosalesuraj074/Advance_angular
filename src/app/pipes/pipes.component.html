@@ -1,18 +1,22 @@
 <div class="table col-md-8">
   <table class="table">
     <thead class="">
-      <th>Name</th>
-      <th>Department</th>
-      <th>salary</th>
-      <th>email</th>
-      <th>phone</th>
+      <tr>
+        <th>Name</th>
+        <th>Department</th>
+        <th>salary</th>
+        <th>email</th>
+        <th>phone</th>
+      </tr>
     </thead>
-    <tbody *ngFor="let emp of employees">
-      <td>{{ emp.name }}</td>
-      <td>{{ emp.department }}</td>
-      <td>{{ emp.salary }}</td>
-      <td>{{ emp.email }}</td>
-      <td>{{ emp.phone }}</td>
-    </tbody>
+    <!-- <tbody>
+      <tr *ngFor="let emp of employees">
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.department }}</td>
+        <td>{{ emp.salary }}</td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.phone }}</td>
+      </tr>
+    </tbody> -->
   </table>
 </div>
