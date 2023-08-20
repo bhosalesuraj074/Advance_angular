@@ -6,5 +6,4 @@ platformBrowserDynamic()
   .then((res) => {})
   .catch((error) => {
     console.error('error', error);
-  })
-  .finally(() => console.log('hello ji'));
+  });
