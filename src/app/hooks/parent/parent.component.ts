@@ -10,7 +10,9 @@ export class ParentComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-  changeColor() {
-    this.color = 'yellow';
+  changeColor(c: string) {
+    if (c) {
+      this.color = c;
+    }
   }
 }

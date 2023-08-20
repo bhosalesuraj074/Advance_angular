@@ -22,7 +22,6 @@ export class ChildComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log('ngOnChanges called...');
     console.log(changes);
-    this.color.nativeElement.style.color = changes.name.currentValue;
   }
 
   ngOnInit() {
