@@ -3,9 +3,7 @@ import { AppModule } from './app/app.module';
 import 'zone.js';
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
-  .then((res) => {
-    console.log(res);
-  })
+  .then((res) => {})
   .catch((error) => {
     console.error('error', error);
   })

@@ -6,13 +6,14 @@ import { HomeComponent } from './home/home.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes & services/filter.pipe';
-import { HooksComponent } from './hooks/hooks.component';
+import { ParentComponent } from './hooks/parent/parent.component';
+import { ChildComponent } from './hooks/child/child.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'pipes', component: PipesComponent },
-  { path: 'hooks', component: HooksComponent },
+  { path: 'hooks', component: ParentComponent },
 ];
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(routes), FormsModule],
@@ -21,7 +22,8 @@ const routes: Routes = [
     PipesComponent,
     HomeComponent,
     FilterPipe,
-    HooksComponent,
+    ParentComponent,
+    ChildComponent,
   ],
   bootstrap: [AppComponent],
   exports: [RouterModule],
