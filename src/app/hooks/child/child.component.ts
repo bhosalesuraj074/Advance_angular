@@ -1,4 +1,6 @@
 import {
+  AfterContentChecked,
+  AfterContentInit,
   Component,
   DoCheck,
   ElementRef,
@@ -16,7 +18,9 @@ import {
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css'],
 })
-export class ChildComponent implements OnInit, OnChanges, DoCheck {
+export class ChildComponent
+  implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked
+{
   @Input() childColor: string | undefined;
   @ViewChild('child') color!: ElementRef;
   @Output() childData = new EventEmitter<string>();
@@ -25,6 +29,7 @@ export class ChildComponent implements OnInit, OnChanges, DoCheck {
   constructor() {
     console.log('1. Constructor called...');
   }
+
   // 2 ngOnChange excuted when change in Input property decorator
   ngOnChanges(changes: SimpleChanges): void {
     console.log('2. ngOnChanges called...');
@@ -39,6 +44,15 @@ export class ChildComponent implements OnInit, OnChanges, DoCheck {
     console.log('4. ngDoCheck called...');
   }
 
+  // 5. ngAfterContentInit excuted once after content projection
+  ngAfterContentInit(): void {
+    console.log('5. ngAfterContentInit called...');
+  }
+
+  //6. ngAfterContentChecked excuted every time projected contet is chaged.
+  ngAfterContentChecked(): void {
+    console.log('6. ngAfterContentChecked called...');
+  }
   sendToParent() {
     this.childData.emit('Suraj');
   }

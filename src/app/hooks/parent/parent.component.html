@@ -8,12 +8,15 @@
     placeholder="enter the color or hex #"
     #mycolor
   />
+  {{ counter }}
   <button class="btn btn-info" (click)="changeColor(mycolor.value)">
     Change Color</button
   ><br />
   {{ child }}
   <hr />
   <app-child [childColor]="color" (childData)="demo($event)">
-    <h4 class="text-success">this is projected content</h4>
+    <h4 class="text-success" [(ngModel)]="counter">
+      this is projected content {{ counter }}
+    </h4>
   </app-child>
 </div>
