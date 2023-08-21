@@ -36,6 +36,27 @@ export class PipesComponent implements OnInit {
       email: 'doe@example.com',
       phone: '456-789-0123',
     },
+    {
+      name: 'Suraj',
+      department: 'IT',
+      salary: 2500000,
+      email: 'suraj@gmail.com',
+      phone: '456-789-0123',
+    },
+    {
+      name: 'Akash',
+      department: 'IT',
+      salary: 1500000,
+      email: 'akash@gmail.com',
+      phone: '123-789-0123',
+    },
+    {
+      name: 'Shubham',
+      department: 'Sales',
+      salary: 25000000,
+      email: 'shubham@gmail.com',
+      phone: '456-345-0123',
+    },
   ];
   constructor() {}
 

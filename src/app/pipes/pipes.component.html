@@ -24,7 +24,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let emp of employees | filter: search:'e'">
+        <tr *ngFor="let emp of employees | filter: search:''">
           <td>{{ emp.name }}</td>
           <td>{{ emp.department }}</td>
           <td>{{ emp.salary }}</td>
