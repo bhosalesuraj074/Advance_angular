@@ -21,8 +21,8 @@ export class ParentComponent implements OnInit {
   changeColor(c: string) {
     if (c) {
       this.color = c;
-      ++this.counter;
     }
+    ++this.counter;
   }
 
   demo(event: any) {
