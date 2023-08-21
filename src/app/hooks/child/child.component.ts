@@ -1,6 +1,7 @@
 import {
   AfterContentChecked,
   AfterContentInit,
+  AfterViewInit,
   Component,
   DoCheck,
   ElementRef,
@@ -19,11 +20,18 @@ import {
   styleUrls: ['./child.component.css'],
 })
 export class ChildComponent
-  implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked
+  implements
+    OnInit,
+    OnChanges,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit
 {
   @Input() childColor: string | undefined;
-  @ViewChild('child') color!: ElementRef;
+  @ViewChild('my') my!: ElementRef;
   @Output() childData = new EventEmitter<string>();
+  color: string = '';
 
   // 1 constructor is called first
   constructor() {
@@ -34,6 +42,7 @@ export class ChildComponent
   ngOnChanges(changes: SimpleChanges): void {
     console.log('2. ngOnChanges called...');
     console.log(changes);
+    this.color = changes.childColor.currentValue;
   }
   // 3 ngInit excuted once in componet life.
   ngOnInit() {
@@ -55,5 +64,10 @@ export class ChildComponent
   }
   sendToParent() {
     this.childData.emit('Suraj');
+  }
+
+  ngAfterViewInit(): void {
+    console.log('7. ngAfterViewInit called...');
+    this.my.nativeElement.style.color = this.color;
   }
 }
