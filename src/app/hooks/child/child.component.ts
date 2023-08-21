@@ -2,9 +2,11 @@ import {
   Component,
   DoCheck,
   ElementRef,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
@@ -17,6 +19,8 @@ import {
 export class ChildComponent implements OnInit, OnChanges, DoCheck {
   @Input() childColor: string | undefined;
   @ViewChild('child') color!: ElementRef;
+  @Output() childData = new EventEmitter<string>();
+
   // 1 constructor is called first
   constructor() {
     console.log('1. Constructor called...');
@@ -33,5 +37,9 @@ export class ChildComponent implements OnInit, OnChanges, DoCheck {
   //4. ngDoCheck excuted every time when the chage is detcted...
   ngDoCheck(): void {
     console.log('4. ngDoCheck called...');
+  }
+
+  sendToParent() {
+    this.childData.emit('Suraj');
   }
 }

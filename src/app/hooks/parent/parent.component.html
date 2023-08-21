@@ -9,8 +9,9 @@
     #mycolor
   />
   <button class="btn btn-info" (click)="changeColor(mycolor.value)">
-    Change Color
-  </button>
+    Change Color</button
+  ><br />
+  {{ child }}
   <hr />
-  <app-child [childColor]="color"></app-child>
+  <app-child [childColor]="color" (childData)="demo($event)"></app-child>
 </div>
