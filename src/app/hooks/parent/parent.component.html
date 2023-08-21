@@ -13,5 +13,7 @@
   ><br />
   {{ child }}
   <hr />
-  <app-child [childColor]="color" (childData)="demo($event)"></app-child>
+  <app-child [childColor]="color" (childData)="demo($event)">
+    <h4 class="text-success">this is projected content</h4>
+  </app-child>
 </div>
