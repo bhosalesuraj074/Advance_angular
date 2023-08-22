@@ -9,6 +9,7 @@ import {
   EventEmitter,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   Output,
   SimpleChanges,
@@ -28,7 +29,8 @@ export class ChildComponent
     AfterContentInit,
     AfterContentChecked,
     AfterViewInit,
-    AfterViewChecked
+    AfterViewChecked,
+    OnDestroy
 {
   @Input() childColor: string | undefined;
   @Output() childData = new EventEmitter<string>();
@@ -65,14 +67,21 @@ export class ChildComponent
   ngAfterContentChecked(): void {
     console.log('6. ngAfterContentChecked called...');
   }
-
+  // 7. ngAfterViewInit hook is excuted once after view and child view fully initilized.
   ngAfterViewInit(): void {
     console.log('7. ngAfterViewInit called...');
     this.view.nativeElement.style.color = 'red';
   }
+  // 8. ngAfterViewInit hook is excuted after view and child view fully initilized.
+  // and it executed after change is detected in the view
   ngAfterViewChecked(): void {
-    console.log('8. ngAfterViewInit called...');
+    console.log('8. ngAfterViewChecked called...');
   }
+
+  ngOnDestroy(): void {
+    console.log('9.ngOnDestroy  called...');
+  }
+
   addCounter() {
     this.counter++;
   }
