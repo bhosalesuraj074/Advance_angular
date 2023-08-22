@@ -35,6 +35,7 @@ export class ChildComponent
   @Input() childColor: string | undefined;
   @Output() childData = new EventEmitter<string>();
   @ViewChild('view') view!: ElementRef;
+  @ViewChild('myButton') button!: ElementRef;
   counter: number = 0;
   color: string = '';
 
@@ -75,7 +76,7 @@ export class ChildComponent
   // 8. ngAfterViewInit hook is excuted after view and child view fully initilized.
   // and it executed after change is detected in the view
   ngAfterViewChecked(): void {
-    console.log('8. ngAfterViewChecked called...');
+    console.log('8. ngAfterViewChecked called...', this.button);
   }
 
   ngOnDestroy(): void {
