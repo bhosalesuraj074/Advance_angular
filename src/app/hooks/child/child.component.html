@@ -6,5 +6,10 @@
     send to parent
   </button>
 </div>
-<h6>This tag id for the ngAfterViewInit and ngAfterViewChecked.</h6>
+
 <ng-content></ng-content>
+<hr />
+<h6 #view>This tag id for the ngAfterViewInit and ngAfterViewChecked.</h6>
+<button class="btn btn-success" (click)="addCounter()">
+  Counter {{ counter }}
+</button>

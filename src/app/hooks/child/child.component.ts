@@ -1,6 +1,7 @@
 import {
   AfterContentChecked,
   AfterContentInit,
+  AfterViewChecked,
   AfterViewInit,
   Component,
   DoCheck,
@@ -26,11 +27,13 @@ export class ChildComponent
     DoCheck,
     AfterContentInit,
     AfterContentChecked,
-    AfterViewInit
+    AfterViewInit,
+    AfterViewChecked
 {
   @Input() childColor: string | undefined;
   @Output() childData = new EventEmitter<string>();
-  @ViewChild('demo') demo!: ElementRef;
+  @ViewChild('view') view!: ElementRef;
+  counter: number = 0;
   color: string = '';
 
   // 1 constructor is called first
@@ -62,11 +65,18 @@ export class ChildComponent
   ngAfterContentChecked(): void {
     console.log('6. ngAfterContentChecked called...');
   }
-  sendToParent() {
-    this.childData.emit('Suraj');
-  }
 
   ngAfterViewInit(): void {
     console.log('7. ngAfterViewInit called...');
+    this.view.nativeElement.style.color = 'red';
+  }
+  ngAfterViewChecked(): void {
+    console.log('8. ngAfterViewInit called...');
+  }
+  addCounter() {
+    this.counter++;
+  }
+  sendToParent() {
+    this.childData.emit('Suraj');
   }
 }
