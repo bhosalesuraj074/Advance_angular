@@ -29,8 +29,8 @@ export class ChildComponent
     AfterViewInit
 {
   @Input() childColor: string | undefined;
-  @ViewChild('my') my!: ElementRef;
   @Output() childData = new EventEmitter<string>();
+  @ViewChild('demo') demo!: ElementRef;
   color: string = '';
 
   // 1 constructor is called first
@@ -68,6 +68,5 @@ export class ChildComponent
 
   ngAfterViewInit(): void {
     console.log('7. ngAfterViewInit called...');
-    this.my.nativeElement.style.color = this.color;
   }
 }
