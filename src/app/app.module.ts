@@ -8,12 +8,14 @@ import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes & services/filter.pipe';
 import { ParentComponent } from './hooks/parent/parent.component';
 import { ChildComponent } from './hooks/child/child.component';
+import { RapidComponent } from './rapid/rapid.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'pipes', component: PipesComponent },
   { path: 'hooks', component: ParentComponent },
+  { path: 'rapid', component: RapidComponent },
 ];
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(routes), FormsModule],
@@ -24,6 +26,7 @@ const routes: Routes = [
     FilterPipe,
     ParentComponent,
     ChildComponent,
+    RapidComponent,
   ],
   bootstrap: [AppComponent],
   exports: [RouterModule],
